@@ -35,11 +35,24 @@
           </button>
           <div id="outputContainer">
             <p id="outputText"></p>
-            <button id="speakOutputBtn" class="icon-btn">
-              <i class="fas fa-volume-up"></i> Listen
-            </button>
+            <div class="output-controls">
+              <button id="speakOutputBtn" class="icon-btn">
+                <i class="fas fa-volume-up"></i> Listen
+              </button>
+              <button id="copyBtn" class="icon-btn">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+              <button id="shareBtn" class="icon-btn">
+                <i class="fas fa-share-alt"></i> Share
+              </button>
+            </div>
           </div>
         </div>
+        <div class="history-section">
+          <h3>Translation History</h3>
+          <ul id="historyList"></ul>
+        </div>
+        <button id="darkModeToggle" class="icon-btn"><i class="fas fa-adjust"></i> Toggle Dark Mode</button>        
       </div>
     </main>
 
