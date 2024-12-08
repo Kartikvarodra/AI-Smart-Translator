@@ -13,6 +13,41 @@ const speakOutputBtn = document.getElementById("speakOutputBtn");
 const languageSelect = document.getElementById("languageSelect");
 const outputContainer = document.getElementById("outputContainer");
 const outputText = document.getElementById("outputText");
+const copyBtn = document.getElementById("copyBtn");
+const shareBtn = document.getElementById("shareBtn");
+const historyList = document.getElementById("historyList");
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+// Copy Translated Text
+copyBtn.addEventListener("click", () => {
+  const text = outputText.textContent;
+  navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+});
+
+// Share Translated Text
+shareBtn.addEventListener("click", () => {
+  const text = outputText.textContent;
+  if (navigator.share) {
+    navigator.share({ text }).catch((error) => console.error("Sharing failed", error));
+  } else {
+    alert("Sharing is not supported in this browser.");
+  }
+});
+
+// Save Translation History
+function saveToHistory(text, translation) {
+  const li = document.createElement("li");
+  li.textContent = `Input: ${text} → Translation: ${translation}`;
+  historyList.appendChild(li);
+  historyList.parentElement.style.display = "block";
+}
+
+// Dark Mode Toggle
+darkModeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+});
+
 
 // Supported Languages
 const languages = {
